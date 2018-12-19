@@ -2,6 +2,20 @@
 
 A tiny node utility for reliably transforming events into SNS Message Attributes for our infrastructure.
 
+## Schema v1.0
+
+Messages published to Fabric **must** include the following required attributes, in-order to be valid. Additional attributes are optional.
+
+**Domains and Events are described in camelCase.**
+
+```json
+{
+  "version": "1.0",
+  "domain": "user",
+  "event": "confirmed"
+}
+```
+
 ## Basic Usage
 
 ```js
