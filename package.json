@@ -1,6 +1,6 @@
 {
   "name": "@friendswithsitters/fabric",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A tiny node utility for reliably transforming events into SNS Message Attributes for our infrastructure.",
   "main": "src/index.js",
   "author": "friendswithsitters",

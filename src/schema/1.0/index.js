@@ -17,8 +17,7 @@ module.exports = (eventName, additionalAttributes = {}) => {
 
   return Object.assign(attributes,
     (detail.length > 0 ? { detail: type(detail) } : null),
-    Object.keys(additionalAttributes).reduce((obj, key) => ({
-      ...obj,
+    Object.keys(additionalAttributes).reduce((obj, key) => Object.assign(obj, {
       [key]: type(additionalAttributes[key]),
     }), {})
   );
