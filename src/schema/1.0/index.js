@@ -9,14 +9,17 @@ module.exports = (eventName, additionalAttributes = {}) => {
     throw new Error(`Event name "${eventName}" is invalid.`);
   }
 
-  return {
+  const attributes = {
     version: type(VERSION),
     domain: type(domain),
-    event: type(event),
-    ...(detail.length > 0 ? { detail: type(detail) } : null),
-    ...Object.keys(additionalAttributes).reduce((obj, key) => ({
+    event: type(event)
+  };
+
+  return Object.assign(attributes,
+    (detail.length > 0 ? { detail: type(detail) } : null),
+    Object.keys(additionalAttributes).reduce((obj, key) => ({
       ...obj,
       [key]: type(additionalAttributes[key]),
-    }), {}),
-  };
+    }), {})
+  );
 };

@@ -8,9 +8,13 @@ module.exports = (eventName, body, additionalAttributes = {}) => {
   if (!schema) {
     throw new Error(`Fabric schema version "${FABRIC_SCHEMA}" invalid or missing.`);
   }
-  return {
+
+  const params = {
     Message: JSON.stringify(body),
     MessageAttributes: schema(eventName, additionalAttributes),
-    ...(FABRIC_TOPIC ? { TopicArn: FABRIC_TOPIC } : null),
   };
+
+  return Object.assign(params, 
+    (FABRIC_TOPIC ? { TopicArn: FABRIC_TOPIC } : null)
+  );
 };
