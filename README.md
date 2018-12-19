@@ -1,5 +1,7 @@
 # 👕 Fabric
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/friends-with-sitters/fabric.svg)](https://greenkeeper.io/)
+
 A tiny node utility for reliably transforming events into SNS Message Attributes for our infrastructure.
 
 ## Schema v1.0
